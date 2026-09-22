@@ -1,0 +1,55 @@
+### Architecture
+
+The network follows the RNNoise design: instead of predicting a clean spectrum sample by sample, it
+predicts **one gain per frequency band** and applies it to the noisy spectrum. Bands follow a
+Bark-like spacing, so the output dimension stays small and the model never has to learn what speech
+sounds like — only which parts of the current frame are speech.
+
+A gated recurrent unit carries the hidden state from frame to frame, which is what lets the model
+tell a consonant apart from a transient: both are broadband and brief, but only one is consistent
+with the last 200 ms of the signal. The hidden size is **128 units**, and a new set of gains is
+produced every 10 ms.
+
+{/* The source notes say "128 GRU layers", which means 128 units in one GRU layer. */}
+
+<Figure
+  kind="diagram"
+  caption="FIG 05.1 — Features, GRU, band gains and the interpolated mask"
+/>
+
+{/* feature set and band count. RNNoise uses 22 Bark bands and 42 features; confirm what this model actually uses. */}
+
+### Quantisation-aware training
+
+The model is trained with **int8 quantisation simulated in the loop**: weights and activations are
+rounded to their deployment precision on every forward pass, while gradients still flow through in
+float. The model therefore learns weights that survive being rounded, and the int8 model that ships
+behaves like the float model that was evaluated.
+
+<Why>
+  Quantising after training is the cheaper route, and on a large model it costs
+  almost nothing. On a model this small there is no redundancy to absorb the
+  rounding error, and post-training quantisation shows up directly as audible
+  artefacts in the gain mask. Simulating the quantiser during training removes
+  that gap, at the price of a slower training run — which is the cheap resource
+  here.
+</Why>
+
+### On the MCU
+
+<SpecTable
+  rows={[
+    {
+      key: "Model size",
+      value: "TODO(owner)",
+      note: "int8 weights, flash",
+      status: "DONE",
+    },
+    {
+      key: "RAM",
+      value: "TODO(owner)",
+      note: "activations plus hidden state",
+      status: "DONE",
+    },
+  ]}
+/>

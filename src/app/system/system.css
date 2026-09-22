@@ -1,0 +1,114 @@
+/* Page-local styles for /system. Loaded only by this route, never globally. */
+
+/* Anchors land below the fixed 56px header. */
+[data-doc-root] :is(h2, h3)[id] {
+  scroll-margin-top: 88px;
+}
+
+[data-doc-root] .doc-prose > :first-child {
+  margin-top: 0;
+}
+
+/* Unordered lists use a 6px hairline dash instead of a bullet. */
+.doc-prose .doc-ul {
+  list-style: none;
+  padding-left: 0;
+}
+.doc-prose .doc-ul > li {
+  position: relative;
+  margin-top: 10px;
+  padding-left: 20px;
+}
+.doc-prose .doc-ul > li::before {
+  content: "";
+  position: absolute;
+  top: 0.78em;
+  left: 0;
+  width: 6px;
+  height: 1px;
+  background: var(--color-dim);
+}
+
+/* Inline-code styling must not apply inside a code block. */
+.doc-prose pre code,
+.doc-code code {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: inherit;
+}
+
+/* Shiki renders its own wrapper; the frame around it supplies the surface. */
+.doc-code .shiki {
+  background: transparent !important;
+  margin: 0;
+}
+
+/* No reveal animation when the reader has asked for less motion. */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ---------- print: white paper, black text, one section per page ---------- */
+@media print {
+  body > header,
+  body > #mobile-menu,
+  body > div[aria-hidden="true"],
+  [data-print-hide] {
+    display: none !important;
+  }
+
+  main {
+    padding-top: 0 !important;
+  }
+
+  /* Collapse the three-column grid to the reading column. */
+  [data-doc-grid] {
+    display: block !important;
+  }
+
+  body,
+  body * {
+    color: #000 !important;
+    background-color: transparent !important;
+    border-color: #bbb !important;
+  }
+
+  html,
+  body {
+    background-color: #fff !important;
+  }
+
+  /* Keep the signature blocks legible without colour. */
+  .doc-prose aside {
+    border-left-color: #000 !important;
+  }
+
+  /* Sections were revealed by script; make sure unvisited ones still print. */
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .doc-section {
+    break-before: page;
+    padding-bottom: 0;
+  }
+  .doc-section[data-doc-first] {
+    break-before: auto;
+  }
+
+  figure,
+  table,
+  aside {
+    break-inside: avoid;
+  }
+
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+}

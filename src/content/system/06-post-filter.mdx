@@ -1,0 +1,17 @@
+AGC keeps the enhanced speech at a consistent listening level, while the soft clipper catches sudden peaks that are too fast for AGC to control.
+
+The AGC continuously tracks the average output level and slowly adjusts the gain toward a target level. This compensates for level variations introduced by the microphone, NLMS adaptation, AI suppression, and comb filtering without causing audible pumping. The soft clipper operates at the final output, leaving normal signals untouched while smoothly rounding peaks above a threshold to prevent harsh digital clipping.
+
+<Why>
+  Together, they provide a stable and safe output: AGC handles slow, sustained
+  level changes, while the soft clipper handles short transients and unexpected
+  peaks. Both are computationally inexpensive and provide the final level and
+  peak control for the speech pipeline.
+</Why>
+
+<Callout tone="limit">
+  AGC intentionally reacts slowly, so it can miss sudden peaks. The soft clipper
+  can control those peaks but cannot remove their underlying cause. Frequent
+  clipping indicates that the upstream suppression or gain stages need
+  improvement.
+</Callout>

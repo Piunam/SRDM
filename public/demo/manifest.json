@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-17T19:20:12Z",
+  "snrLevels": [
+    -5,
+    0,
+    5,
+    10
+  ],
+  "noiseTypes": [
+    "gunshot",
+    "rotor",
+    "engine",
+    "siren",
+    "wind"
+  ],
+  "items": []
+}

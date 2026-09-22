@@ -1,0 +1,17 @@
+Terms used on this page, in the sense they are used here.
+
+<SpecTable
+  rows={[
+    ["SNR", "Signal-to-noise ratio. How much louder the speech is than the noise, in decibels. 0 dB means equally loud; negative means the noise is louder."],
+    ["STOI", "Short-time objective intelligibility, 0 to 1. A model of how much of the speech a listener would actually make out. Intelligibility, not pleasantness."],
+    ["PESQ", "Perceptual evaluation of speech quality, roughly 1 to 4.5. A model of how the processed audio sounds — it punishes artefacts introduced while removing noise."],
+    ["NLMS", "Normalised least mean squares. An adaptive filter that learns, frame by frame, how the noise at a reference microphone appears at the primary one, and subtracts it. Normalising by input energy makes it behave the same at any level."],
+    ["Beamforming", "Combining two or more microphones so the array is more sensitive in one direction. Here it favours the mouth and rejects part of the surrounding field before any filtering."],
+    ["GRU", "Gated recurrent unit. A recurrent network cell that keeps a hidden state between frames, so the model's decision about this frame depends on what it heard in the last few hundred milliseconds."],
+    ["QAT", "Quantisation-aware training. Training with the deployment precision — here int8 — simulated in the forward pass, so the model learns weights that survive being rounded down from float."],
+    ["Bark bands", "A frequency grouping that follows the ear's resolution: narrow at low frequencies, wide at high ones. Predicting one gain per band instead of per bin is what keeps the model small."],
+    ["Comb filter", "A filter with regularly spaced notches. Locked to the speaker's pitch, it passes the voice's harmonics and attenuates the noise sitting between them."],
+    ["Impulsive noise", "Noise that arrives as a burst: a gunshot, artillery, a door slam. It changes the spectrum faster than an adaptive filter can follow, which is why it needs the network."],
+    ["Stationary noise", "Noise whose spectrum is roughly constant: engine hum, fans, wind. Predictable, and therefore cheap to remove with classical DSP."],
+  ]}
+/>

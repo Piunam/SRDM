@@ -1,0 +1,51 @@
+<Flow
+  caption="FIG 02.1 — One 10 ms frame, microphone to headset"
+  steps={[
+    { label: "Mic pair", sub: "primary + reference" },
+    { label: "DSP prefilter", sub: "beamform · NLMS" },
+    {
+      label: "SNR gate",
+      sub: "SNR ≥ +5 dB ?",
+      branch: { bypass: "bypass — prefilter output passes through", throughTag: "No", bypassTag: "Yes" },
+    },
+    { label: "RNNoise", sub: "band gains, per frame" },
+    { label: "Post-filter", sub: "pitch comb" },
+    { label: "Output", sub: "DAC → headset" },
+  ]}
+/>
+
+Everything below happens once per **10 ms frame**. The frame length is the unit of the whole system:
+the adaptive filter updates on it, the network's hidden state advances on it, and the latency budget
+is counted in it.
+
+1. **Capture.** The primary microphone sits on the headset boom, close to the mouth. The reference
+   microphone sits on the enclosure, away from the speaker, so it hears the environment far more than
+   the voice.
+2. **DSP prefilter.** Beamforming gives a first spatial rejection; the NLMS adaptive filter then uses
+   the reference channel to estimate and subtract what is left of the steady noise. See
+   [section 04](#dsp-prefilter).
+3. **SNR gate.** The prefiltered frame's SNR is estimated and compared against **+5 dB**. Above the
+   threshold the frame is already clean enough and skips the network. Below it, the frame is handed
+   to RNNoise.
+4. **RNNoise.** The network predicts one gain per frequency band and applies it to the frame's
+   spectrum. See [section 05](#rnnoise).
+5. **Post-filter.** A comb filter tuned to the detected pitch removes residual noise between the
+   harmonics. See [section 06](#post-filter).
+6. **Output.** The frame is reconstructed, converted by the DAC and sent to the headset over the
+   wireless link.
+
+<Why>
+  The gate exists because the two halves of the chain are good at different things. Above roughly
+  +5 dB the residual noise is mostly stationary, and the DSP stage alone already scores better on
+  perceptual metrics than the network does — while costing a fraction of the cycles. Below it, or as
+  soon as impulsive events appear, the linear filter has nothing to track and the network is the only
+  stage that can help. Gating rather than always running the network is what keeps the average
+  per-frame budget inside a microcontroller.
+</Why>
+
+{/* TODO(owner): confirm how the gate's SNR is estimated (a priori, a posteriori, or decision-directed) and its hysteresis, if any. */}
+
+<Callout tone="note">
+  The gate is per frame, not per session, so a single gunshot inside an otherwise quiet passage still
+  gets the network's attention.
+</Callout>

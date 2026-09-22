@@ -1,0 +1,61 @@
+{/* TODO(owner): every figure below is a target, not a measurement. Section 11 is the ledger of record. */}
+
+<KeyFacts
+  items={[
+    {
+      label: "SNR",
+      value: "15",
+      unit: "dB",
+      sub: "target, minimum",
+      status: "TARGET",
+    },
+    { label: "STOI", value: "0.85", sub: "target, minimum", status: "TARGET" },
+    { label: "PESQ", value: "2.5", sub: "target, minimum", status: "TARGET" },
+    {
+      label: "Latency",
+      value: "Low",
+      unit: "ms",
+      sub: "wireless link",
+      status: "TARGET",
+    },
+  ]}
+/>
+
+### The problem
+
+Classical noise suppression assumes the noise is **stationary** — that its spectrum barely changes from
+one frame to the next. Spectral subtraction, Wiener filtering and LMS-based active noise control all
+lean on that assumption, and they earn their keep on engine hum, rotor wash and road roar.
+
+A gunshot breaks the assumption in a single frame. So does a door slam, a rotor blade passing the mic,
+a siren sweeping through the speech band. The estimator is still describing the noise from 30 ms ago,
+so it either fails to remove the event or, worse, removes the speech with it: pumping, musical noise
+and clipped consonants. In the field that is the difference between a readable transmission and
+a repeated one.
+
+### The approach
+
+Three stages, each doing only what it is good at.
+
+- **DSP where DSP wins.** A reference microphone hears mostly the environment. Beamforming and an NLMS
+  adaptive filter use it to subtract steady noise from the primary microphone, every 10 ms frame, for
+  almost no compute.
+- **A small network where DSP fails.** An RNNoise-style recurrent network predicts a gain per frequency
+  band. It is only invoked when the prefiltered SNR is low or the residual looks impulsive, so the
+  average cost stays inside the MCU's budget.
+- **A post-filter for polish.** A comb filter locked to the speaker's pitch harmonics clears the
+  residual noise sitting between them.
+
+The whole chain runs on one microcontroller with no cloud, no phone and no companion DSP. What leaves
+the device is speech, on a wireless link with a 25 ms budget end to end.
+
+<Figure
+  kind="video"
+  caption="FIG 01.1 — Prototype on the bench: gunfire mixed into speech, bypass then enabled"
+/>
+
+<Callout tone="note">
+  This page describes the system as designed and as far as it is built. Anything
+  not yet measured on hardware is tagged, and every tagged claim appears once
+  more in the [status ledger](#status-ledger).
+</Callout>
