@@ -105,37 +105,14 @@ export const HOME = {
     label: "Hardware",
     title: "The prototype",
     lede: "A sealed, printed enclosure carrying the MCU, the reference mic and the battery. Drag to look around it.",
-    caption: "FIG 2 — Printed enclosure, outline",
+    caption: "FIG 2 — Printed enclosure",
     pendingLabel: "[ STL pending ]",
     hint: "DRAG TO ROTATE",
-    specs: [
-      { label: "Material", value: "TODO(owner)", note: "filament and colour" },
-      {
-        label: "Print settings",
-        value: "TODO(owner)",
-        note: "layer height, walls, infill",
-      },
-      {
-        label: "Sealing",
-        value: "TODO(owner)",
-        note: "gasket, gland, IP rating",
-      },
-      { label: "Mass", value: "TODO(owner)", note: "assembled, with battery" },
-    ],
-  },
-
-  video: {
-    number: "04",
-    label: "Bench test",
-    title: "Running on the device",
-    lede: "The whole chain on the microcontroller, recorded in one take with no post-processing.",
-    // Edit this caption; it is the one line under the video frame.
-    caption: "FIG 1 — Prototype, bench test",
-    pendingLabel: "[ video pending ]",
+    specs: [],
   },
 
   build: {
-    number: "05",
+    number: "04",
     label: "Build",
     title: "What's inside",
     cards: [

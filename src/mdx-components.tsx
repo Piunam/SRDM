@@ -10,6 +10,7 @@ import { KeyFacts } from "@/components/docs/blocks/KeyFacts";
 import { Roadmap } from "@/components/docs/blocks/Roadmap";
 import { SpecTable } from "@/components/docs/blocks/SpecTable";
 import { Why } from "@/components/docs/blocks/Why";
+import { StlFrame } from "@/components/home/StlFrame";
 
 /**
  * Components available to every MDX file, plus the prose styles for the
@@ -25,6 +26,7 @@ const components: MDXComponents = {
   Roadmap,
   SpecTable,
   StatusTag,
+  StlFrame,
   Why,
 
   // Prose.

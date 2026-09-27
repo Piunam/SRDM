@@ -48,7 +48,7 @@ export function LiveSession() {
       <header className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-cy">
-            Live session · dummy device
+            Live session · device
           </p>
           <h1 className="mt-3 text-[clamp(28px,3.4vw,44px)] font-semibold leading-[1.06] tracking-[-0.015em] text-white">
             Live hardware session

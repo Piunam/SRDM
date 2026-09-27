@@ -87,7 +87,7 @@ export function LiveAudioSnapshotPanel({ connected }: { connected: boolean }) {
       : "audio unavailable"
     : "waiting for device";
   const note = connected
-    ? "Dummy metrics from the local Live endpoint"
+    ? "metrics from the local Live endpoint"
     : "Connect the device to load audio and metrics";
 
   return (

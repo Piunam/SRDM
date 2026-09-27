@@ -37,7 +37,7 @@ export function ConnectionBar({
               className={`font-mono text-[12px] uppercase tracking-[0.14em] ${tone.text}`}
             >
               {connected
-                ? "DUMMY DEVICE CONNECTED"
+                ? "DEVICE CONNECTED"
                 : connecting
                   ? "CONNECTING…"
                   : "DEVICE DISCONNECTED"}

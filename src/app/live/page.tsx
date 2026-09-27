@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Live session",
     description:
-      "A dummy connection flow with input and output audio, SNR, STOI and PESQ.",
+      "A connection flow with input and output audio, SNR, STOI and PESQ.",
     images: [
       { url: "/og/live.png", width: 1200, height: 630, alt: "Live session" },
     ],

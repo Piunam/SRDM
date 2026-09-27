@@ -12,7 +12,7 @@ import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
  * src/components/hero, which is frozen.
  */
 const ENCLOSURE = {
-  color: "#1B222A",
+  color: "#9CA3AB",
   metalness: 0.2,
   roughness: 0.55,
   clearcoat: 0.1,

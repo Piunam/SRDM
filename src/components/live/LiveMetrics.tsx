@@ -62,12 +62,6 @@ export function LiveMetrics({
       <p className="mt-6 border-t border-line pt-4 font-mono text-[11px] leading-[1.6] text-dim">
         Live figures are telemetry from the running chain, not evaluation
         results. STOI and PESQ are computed offline against a clean reference —{" "}
-        <Link
-          href="/system#status-ledger"
-          className="text-silver underline decoration-line3 underline-offset-[3px] hover:text-cy"
-        >
-          see the status ledger
-        </Link>
         .
       </p>
     </Panel>

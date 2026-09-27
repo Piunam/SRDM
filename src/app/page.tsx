@@ -3,7 +3,6 @@ import { MetricsStrip } from "@/components/home/MetricsStrip";
 import { Problem } from "@/components/home/Problem";
 import { Pipeline } from "@/components/home/Pipeline";
 import { ModelViewer } from "@/components/home/ModelViewer";
-import { DemoVideo } from "@/components/home/DemoVideo";
 import { BuildStrip } from "@/components/home/BuildStrip";
 import { ClosingBand } from "@/components/home/ClosingBand";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -18,7 +17,6 @@ export default function Home() {
       <Problem />
       <Pipeline />
       <ModelViewer />
-      <DemoVideo />
       <BuildStrip />
       <ClosingBand />
       {/* layout.tsx is frozen, so the footer is rendered per page. See NOTES.md. */}

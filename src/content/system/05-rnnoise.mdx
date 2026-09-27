@@ -12,11 +12,6 @@ produced every 10 ms.
 
 {/* The source notes say "128 GRU layers", which means 128 units in one GRU layer. */}
 
-<Figure
-  kind="diagram"
-  caption="FIG 05.1 — Features, GRU, band gains and the interpolated mask"
-/>
-
 {/* feature set and band count. RNNoise uses 22 Bark bands and 42 features; confirm what this model actually uses. */}
 
 ### Quantisation-aware training
@@ -41,13 +36,13 @@ behaves like the float model that was evaluated.
   rows={[
     {
       key: "Model size",
-      value: "TODO(owner)",
+      value: "600kb",
       note: "int8 weights, flash",
       status: "DONE",
     },
     {
       key: "RAM",
-      value: "TODO(owner)",
+      value: "200kb",
       note: "activations plus hidden state",
       status: "DONE",
     },

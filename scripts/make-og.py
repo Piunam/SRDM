@@ -25,7 +25,7 @@ DIM = (109, 126, 140)
 CY = (45, 212, 200)
 
 # The site name, kept in sync with src/lib/site-config.ts by hand.
-PROJECT = "[PROJECT NAME]"
+PROJECT = "Aeroshield"
 STATUS = "PROTOTYPE · DEMO BUILD"
 
 CARDS = {

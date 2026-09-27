@@ -62,8 +62,8 @@ export const COPY = {
     act6: {
       num: "04",
       title: "Post-filter",
-      sub: "pitch-locked comb",
-      body: "A comb filter locks to the speaker's pitch and clears what's left between the harmonics.",
+      sub: "AGC and Soft Clipper",
+      body: "Automatic Gain Control and Clipper filter locks to the speaker's pitch and clears what's left between the harmonics.",
     },
   } satisfies Record<string, ActCopy>,
 

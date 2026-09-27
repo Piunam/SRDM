@@ -3,7 +3,7 @@
 export type NavItem = { label: string; href: string; locked?: boolean };
 
 export const siteConfig = {
-  name: "[PROJECT NAME]",
+  name: "Aeroshield",
   status: "PROTOTYPE · DEMO BUILD",
   nav: [
     { label: "System", href: "/system" },
@@ -15,13 +15,13 @@ export const siteConfig = {
   // Assets the owner drops in later. Anything left undefined renders as a
   // neutral "[ asset pending ]" frame instead of a broken element.
   assets: {
-    stlUrl: undefined as string | undefined,
+    stlUrl: "/aeroshield-%20open.stl" as string | undefined,
     demoVideoUrl: undefined as string | undefined,
     demoVideoPoster: undefined as string | undefined,
   },
 
   contact: {
-    email: "TODO(owner)",
+    email: "shaymonkhawas563@gmail.com",
     github: undefined as string | undefined,
   },
 } as const;
