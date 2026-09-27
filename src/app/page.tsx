@@ -12,6 +12,7 @@ export default function Home() {
   return (
     <main>
       <HeroScene />
+      <Analytics />
       {/* Hand-off: the metrics strip section attaches here. */}
       <div className="h-px w-full bg-line" />
       <MetricsStrip />
