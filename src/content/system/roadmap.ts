@@ -28,7 +28,7 @@ export const ROADMAP: RoadmapItem[] = [
     title: "Firmware hardening",
     detail:
       "C on the ARM core, with assembly on the hot paths: deterministic frame timing, static memory, no allocation after start-up.",
-    status: "Semi-Done",
+    status: "IN PROGRESS",
   },
   {
     when: "TODO",

@@ -13,6 +13,12 @@ export type PipelineNode = {
   lane?: "branch";
 };
 
+export type ModelSpec = {
+  label: string;
+  value: string;
+  note: string;
+};
+
 export const HOME = {
   problem: {
     number: "01",
@@ -108,7 +114,7 @@ export const HOME = {
     caption: "FIG 2 — Printed enclosure",
     pendingLabel: "[ STL pending ]",
     hint: "DRAG TO ROTATE",
-    specs: [],
+    specs: [] as ModelSpec[],
   },
 
   build: {
@@ -150,5 +156,6 @@ export const HOME = {
 
   footer: {
     tagline: "Prototype · demo build",
+    disclaimer: "Figures are placeholders until the evaluation set is final.",
   },
 } as const;

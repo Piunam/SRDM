@@ -91,7 +91,7 @@ export const COPY = {
   readout: { label: "SNR", gate: "gate" },
 
   h2: "Heard clearly. Processed at the edge.",
-
+  footnote: "Figures are placeholders until the evaluation set is final.",
   sound: { off: "Sound off", on: "Sound on" },
 
   stages: [
