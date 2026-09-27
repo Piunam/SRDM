@@ -1,0 +1,2 @@
+../board/hardware_init.c:36:6:BOARD_InitHardware	40	static
+../board/hardware_init.c:66:6:BOARD_MASTER_CLOCK_CONFIG	4	static

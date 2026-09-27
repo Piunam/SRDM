@@ -1,0 +1,3 @@
+../source/src/parse_lpcnet_weights.c:54:5:rnn_parse_weights	48	static
+../source/src/parse_lpcnet_weights.c:123:5:rnn_linear_init	48	static
+../source/src/parse_lpcnet_weights.c:178:5:rnn_conv2d_init	40	static
