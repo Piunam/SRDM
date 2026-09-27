@@ -1,0 +1,8 @@
+These are the list of dataset sources used in this project to build a scalable dataset pipeline. 
+(1) https://www.kaggle.com/datasets/zackyzac/firearms-audio-dataset-58-gun-types
+(2) https://www.kaggle.com/datasets/junewookim/mad-dataset-military-audio-dataset
+(3) https://www.kaggle.com/datasets/ziya07/indian-languages-audio-dataset
+(4) https://zenodo.org/records/6687982
+(5) https://www.kaggle.com/datasets/pythonafroz/electrical-motor-anomaly-detection-from-sound-data?select=dev_data_pump
+(6) https://www.kaggle.com/datasets/kirillchorniy/urban-sound-8k-with-extracted-features
+(7) https://github.com/AI4Bharat/NPTEL2020-Indian-English-Speech-Dataset/tree/master
