@@ -6,6 +6,7 @@ import { ModelViewer } from "@/components/home/ModelViewer";
 import { BuildStrip } from "@/components/home/BuildStrip";
 import { ClosingBand } from "@/components/home/ClosingBand";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function Home() {
   return (
