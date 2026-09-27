@@ -1,5 +1,4 @@
 {
-     
-      "input": { "snrDb": 0, "stoi": 0.7456, "pesq": 1.647 },
-      "output": { "snrDb": 9.17, "stoi": 0.8169, "pesq": 2.057 }
-    }
+  "input": { "snrDb": 5, "stoi": 0.8105, "pesq": 1.823 },
+  "output": { "snrDb": 11.45, "stoi": 0.8712, "pesq": 2.238 }
+}
