@@ -1,5 +1,0 @@
-<directory>
- <chips chipVendor='NXP' >
-  <chip name='MCXN236' xml_file='MCXN236_part.xml' />
- </chips>
-</directory> 

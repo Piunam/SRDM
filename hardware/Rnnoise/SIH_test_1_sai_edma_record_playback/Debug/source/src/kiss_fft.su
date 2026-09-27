@@ -1,9 +1,0 @@
-../source/src/kiss_fft.c:315:6:compute_bitrev_table.constprop.isra	272	static
-../source/src/kiss_fft.c:423:5:rnn_fft_alloc_arch_c	0	static
-../source/src/kiss_fft.c:434:17:rnn_fft_alloc_twiddles	72	static
-../source/src/kiss_fft.c:495:17:rnn_fft_alloc	16	static
-../source/src/kiss_fft.c:500:6:rnn_fft_free_arch_c	0	static
-../source/src/kiss_fft.c:504:6:rnn_fft_free	8	static
-../source/src/kiss_fft.c:518:6:rnn_fft_impl	184	static
-../source/src/kiss_fft.c:566:6:rnn_fft_c	4	static
-../source/src/kiss_fft.c:589:6:rnn_ifft_c	24	static

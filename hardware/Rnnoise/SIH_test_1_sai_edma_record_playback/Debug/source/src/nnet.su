@@ -1,4 +1,0 @@
-../source/src/nnet.c:57:6:rnn_compute_generic_dense	16	static
-../source/src/nnet.c:65:6:rnn_compute_generic_gru	24624	static
-../source/src/nnet.c:96:6:rnn_compute_glu	8208	static
-../source/src/nnet.c:113:6:rnn_compute_generic_conv1d	4128	static

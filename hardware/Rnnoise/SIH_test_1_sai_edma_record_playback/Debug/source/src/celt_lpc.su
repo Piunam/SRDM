@@ -1,2 +1,0 @@
-../source/src/celt_lpc.c:38:6:rnn_lpc	32	static
-../source/src/celt_lpc.c:92:5:rnn_autocorr	3496	static

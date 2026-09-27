@@ -1,6 +1,0 @@
-C:\Users\Dell\Documents\MCUXpressoIDE_25.6.136\workspace\SIH_ANC\SIH_test_1_sai_edma_record_playback\inc/vec.h:207:20:sparse_cgemv8x4	2168	static
-C:\Users\Dell\Documents\MCUXpressoIDE_25.6.136\workspace\SIH_ANC\SIH_test_1_sai_edma_record_playback\inc/vec.h:292:20:cgemv8x4	2168	static
-C:\Users\Dell\Documents\MCUXpressoIDE_25.6.136\workspace\SIH_ANC\SIH_test_1_sai_edma_record_playback\inc/nnet_arch.h:62:25:vec_swish	16392	static
-C:\Users\Dell\Documents\MCUXpressoIDE_25.6.136\workspace\SIH_ANC\SIH_test_1_sai_edma_record_playback\inc/nnet_arch.h:79:6:rnn_compute_activation_c	56	static
-C:\Users\Dell\Documents\MCUXpressoIDE_25.6.136\workspace\SIH_ANC\SIH_test_1_sai_edma_record_playback\inc/nnet_arch.h:130:6:rnn_compute_linear_c	64	static
-C:\Users\Dell\Documents\MCUXpressoIDE_25.6.136\workspace\SIH_ANC\SIH_test_1_sai_edma_record_playback\inc/nnet_arch.h:225:6:rnn_compute_conv2d_c	32896	static
