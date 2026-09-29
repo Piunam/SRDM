@@ -1,0 +1,50 @@
+### What it is
+
+A generator that manufactures training pairs instead of collecting them. It follows the approach of
+**MS-SNSD** and extends the data pipeline that ships with RNNoise: clean speech is mixed with noise
+at a controlled signal-to-noise ratio, and both the mixture and the clean reference are kept, so
+every example comes with its own ground truth.
+
+Generating rather than recording is what makes the SNR axis controllable. The same utterance can be
+emitted at −5, 0, +5 and +10 dB against the same gunshot, which is the only practical way to train a
+model that has to behave sensibly across that whole range.
+
+<Flow
+  caption="FIG 07.1 — Pair generation"
+  steps={[
+    { label: "Clean speech", sub: "corpus" },
+    { label: "Noise bank", sub: "impulsive · stationary · non-stationary" },
+    { label: "SNR sampler", sub: "target ratio per example" },
+    { label: "Mix + augment", sub: "reverb · clipping · gain" },
+    { label: "Pairs", sub: "(noisy, clean)" },
+    { label: "Features", sub: "bands + frame context" },
+  ]}
+/>
+
+### Noise classes
+
+- **Impulsive** — gunshots and artillery
+- **Non-stationary** — helicopter rotors, armoured vehicles, sirens and drones
+- **Stationary** — engine and generator hum, wind
+
+### Augmentation
+
+- Random mixing: which noise, how many layers, where it lands in the utterance
+- Reverberation, to stand in for enclosed spaces and vehicle interiors
+- Clipping, because a loud transient into a real preamp is rarely linear
+
+<Why>
+  Public speech-enhancement datasets are built around offices, cafés and
+  streets. They contain almost no gunfire, no rotor wash and no armour, and
+  impulsive events in particular are under-represented to the point of absence.
+  A model trained on them learns the wrong prior for this job, so the pairs are
+  generated here — at whatever scale the training run needs, with the noise
+  classes that actually matter.
+</Why>
+
+<Callout tone="limit">
+  Synthetic mixing is not a field recording. It does not reproduce microphone
+  placement, body shielding, wind against the grille or the acoustics of a real
+  vehicle. Field evaluation is on the [roadmap](#roadmap) precisely because this
+  pipeline cannot answer that question.
+</Callout>

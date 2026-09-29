@@ -1,0 +1,43 @@
+@keyframes live-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-6px);
+  }
+  45% {
+    transform: translateX(6px);
+  }
+  70% {
+    transform: translateX(-4px);
+  }
+  88% {
+    transform: translateX(2px);
+  }
+}
+
+.live-shake {
+  animation: live-shake 260ms ease-in-out;
+}
+
+@keyframes live-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.live-pulse {
+  animation: live-pulse 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .live-shake,
+  .live-pulse {
+    animation: none;
+  }
+}

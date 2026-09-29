@@ -1,0 +1,70 @@
+### Parts
+
+<SpecTable
+  rows={[
+    {
+      key: "MCU",
+      value: "NXP",
+      note: "NXP MXCN236",
+    },
+    {
+      key: "Primary mic",
+      value: "Headset boom",
+      note: "wired or wireless, close to the mouth",
+    },
+    {
+      key: "Reference mic",
+      value: "Enclosure-mounted",
+      note: "on or hanging from the case, facing the environment",
+    },
+    {
+      key: "DAC / output",
+      value: "PCM5102A",
+      note: "converter and headset drive stage",
+    },
+    {
+      key: "Wireless link",
+      value: "20 ms",
+      note: "latency budget, end to end",
+      status: "TARGET",
+    },
+    {
+      key: "Enclosure",
+      value: "Airtight, 3D-printed",
+      note: "custom, in progress",
+      status: "IN PROGRESS",
+    },
+    {
+      key: "Power",
+      value: "9.9mW",
+      note: "It can run on our battery for 3 days without charge.",
+    },
+  ]}
+/>
+
+<Figure caption="FIG 03.1 — Printed enclosure, lid open">
+  <StlFrame />
+</Figure>
+
+<Why>
+  The enclosure is airtight because the device is meant to be worn where dust,
+  rain and solvent spray are normal. Sealing the case also isolates it
+  acoustically, so the reference microphone is not listening to the board's own
+  mechanical noise through the shell.
+</Why>
+
+<Why>
+  The reference microphone is deliberately outside, away from the speaker's
+  mouth. The further its voice-to-noise ratio is from the primary microphone's,
+  the cleaner the noise estimate the adaptive filter gets — and the less speech
+  the filter can cancel by mistake.
+</Why>
+
+### Firmware
+
+<StatusTag status="IN DEMO" /> The firmware is written in C for the ARM core: a
+fixed 10 ms frame loop, DMA-fed microphone buffers and a static memory plan with
+no allocation after start-up. It runs the demo build end to end today; hardening
+is scheduled rather than done.
+
+{/* TODO(owner): toolchain, RTOS or bare metal, build command, current flash and RAM figures. */}

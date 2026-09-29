@@ -1,0 +1,45 @@
+### Loss
+
+Training uses a perceptual loss over the band gains, combined with **L1** and **L2** terms on the
+error between the predicted and the ideal gain. L2 keeps the bulk of the mask close to correct; L1
+stops a handful of badly wrong bands from being averaged away; the perceptual weighting decides which
+bands the error is worth spending capacity on.
+
+<Why>
+  These losses suit the failure mode this system cares about. An impulsive event
+  is a small number of frames in which the mask must change sharply, and a pure
+  mean-squared objective is happy to smear that error across neighbouring frames
+  if it lowers the average. Adding the L1 term penalises the outlier directly.
+  They are also arithmetically trivial, which keeps training fast enough to
+  iterate on a model small enough to fit the MCU — the constraint every other
+  choice here answers to.
+</Why>
+
+### Metrics
+
+- **SNR** — how much louder the speech is than what is left of the noise, in dB. Blunt, but it is
+  the number the rest of the chain is tuned against.
+- **STOI** — short-time objective intelligibility, 0 to 1. Estimates how much of the speech a
+  listener would actually make out. This is the number that matters for radio traffic.
+- **PESQ** — perceptual evaluation of speech quality, roughly 1 to 4.5. Estimates how the result
+  _sounds_: whether the processing introduced artefacts while it was removing noise.
+
+All three are computed against the clean reference from the generated pairs, so they measure the
+model, not the recording.
+
+### Hyperparameters
+
+<SpecTable
+  rows={[
+    { key: "Optimiser", value: "Adam" },
+    { key: "Learning rate", value: "0.001", note: "and schedule" },
+    { key: "Batch size", value: "64" },
+    { key: "Epochs", value: "50", note: "and early-stopping criterion" },
+  ]}
+/>
+
+<Callout tone="limit">
+  No trained checkpoint has been evaluated on a held-out field recording. Every
+  metric quoted on this site comes from the generated test split, and is tagged
+  accordingly.
+</Callout>

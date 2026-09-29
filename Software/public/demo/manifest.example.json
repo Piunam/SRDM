@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "generatedAt": "2026-01-01T00:00:00Z",
+  "snrLevels": [-5, 0, 5, 10],
+  "noiseTypes": ["gunshot", "rotor", "engine", "siren", "wind"],
+  "items": [
+    {
+      "id": "gunshot_-5dB_01",
+      "noise": "gunshot",
+      "inputSnrDb": -5,
+      "clip": "01",
+      "noisy": { "file": "noisy/gunshot_-5dB_01.wav", "snrDb": -5.0, "stoi": 0.61, "pesq": 1.42 },
+      "enhanced": { "file": "clean/gunshot_-5dB_01.wav", "snrDb": 14.2, "stoi": 0.89, "pesq": 2.61 },
+      "stages": {
+        "prefilter": "stages/gunshot_-5dB_01_prefilter.wav",
+        "rnnoise": "stages/gunshot_-5dB_01_rnnoise.wav",
+        "postfilter": "stages/gunshot_-5dB_01_postfilter.wav"
+      },
+      "status": "MEASURED"
+    },
+    {
+      "id": "rotor_5dB_02",
+      "noise": "rotor",
+      "inputSnrDb": 5,
+      "clip": "02",
+      "noisy": { "file": "noisy/rotor_5dB_02.wav", "snrDb": 5.0, "stoi": null, "pesq": null },
+      "enhanced": { "file": "clean/rotor_5dB_02.wav", "snrDb": null, "stoi": null, "pesq": null },
+      "stages": { "prefilter": "stages/rotor_5dB_02_prefilter.wav", "rnnoise": null, "postfilter": null },
+      "status": "IN PROGRESS"
+    }
+  ]
+}

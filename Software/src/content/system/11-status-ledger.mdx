@@ -1,0 +1,19 @@
+import { LEDGER } from "./ledger";
+
+Every number quoted anywhere on this site appears here once, with how it was arrived at. If a figure
+is not in this table it is not a claim.
+
+- **MEASURED** — obtained from the hardware or from a held-out evaluation, and reproducible
+- **SIMULATED** — obtained from a model or a generated test set, not from the device
+- **TARGET** — a design goal or a placeholder, not yet verified
+- **PLANNED** — not built, not measured, listed so the gap is visible
+
+<SpecTable rows={LEDGER} caption="Status of every figure on the site" />
+
+<Callout tone="note">
+  Nothing is tagged **MEASURED** yet. The headline metrics are read from the same configuration file
+  the home page uses, so the day a real evaluation lands, this table and the rest of the site change
+  together.
+</Callout>
+
+{/* TODO(owner): add a row here for any figure that appears in a slide deck, a PDF or a conversation, not just on this site. */}

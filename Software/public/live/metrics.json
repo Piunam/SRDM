@@ -1,0 +1,4 @@
+{
+  "input": { "snrDb": 5, "stoi": 0.8105, "pesq": 1.823 },
+  "output": { "snrDb": 11.45, "stoi": 0.8712, "pesq": 2.238 }
+}

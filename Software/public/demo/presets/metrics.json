@@ -1,0 +1,39 @@
+{
+  "levels": {
+    "-15": {
+      "status": "MEASURED",
+      "input": { "snrDb": -15, "stoi": 0.3545, "pesq": 1.025 },
+      "output": { "snrDb": 4.073, "stoi": 0.6022, "pesq": 1.463 }
+    },
+    "-10": {
+      "status": "MEASURED",
+      "input": { "snrDb": -10, "stoi": 0.4881, "pesq": 1.159 },
+      "output": { "snrDb": 5.265, "stoi": 0.7089, "pesq": 1.566 }
+    },
+    "-5": {
+      "status": "MEASURED",
+      "input": { "snrDb": -5, "stoi": 0.5986, "pesq": 1.363 },
+      "output": { "snrDb": 7.722, "stoi": 0.7683, "pesq": 1.754 }
+    },
+    "0": {
+      "status": "MEASURED",
+      "input": { "snrDb": 0, "stoi": 0.7456, "pesq": 1.647 },
+      "output": { "snrDb": 9.17, "stoi": 0.8169, "pesq": 2.057 }
+    },
+    "5": {
+      "status": "MEASURED",
+      "input": { "snrDb": 5, "stoi": 0.8105, "pesq": 1.823 },
+      "output": { "snrDb": 11.45, "stoi": 0.8712, "pesq": 2.238 }
+    },
+    "10": {
+      "status": "MEASURED",
+      "input": { "snrDb": 10, "stoi": 0.8455, "pesq": 2.086 },
+      "output": { "snrDb": 16.84, "stoi": 0.8986, "pesq": 2.421 }
+    },
+    "15": {
+      "status": "MEASURED",
+      "input": { "snrDb": 15, "stoi": 0.8725, "pesq": 2.386 },
+      "output": { "snrDb": 20.2, "stoi": 0.9397, "pesq": 2.619 }
+    }
+  }
+}

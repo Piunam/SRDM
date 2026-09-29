@@ -1,0 +1,24 @@
+The prefilter's job is to remove everything that can be removed by arithmetic alone, before any
+learned model is asked for an opinion.
+
+Two microphones give it something to work with. Beamforming combines the pair to favour the direction
+of the mouth, which already rejects part of the field. What survives is handled by a **normalised
+least mean squares** adaptive filter: the reference channel is filtered to predict the noise present
+in the primary channel, and that prediction is subtracted. The filter's coefficients are updated
+every frame, so slowly drifting noise — an engine changing load, a rotor spinning up — is tracked
+without any explicit model of it.
+
+<Why>
+  NLMS is cheap, numerically stable and needs no training data or noise model.
+  Normalising by the reference energy makes its convergence independent of input
+  level, which matters when the same device sits in a quiet cab and beside a
+  running turbine. It costs little enough to run on every frame, so it is the
+  default path rather than an option.
+</Why>
+
+<Callout tone="limit">
+  An adaptive filter can only cancel what it can predict. A gunshot is over
+  before the coefficients have moved, so NLMS does close to nothing for it — and
+  a large enough transient can knock the filter out of adaptation for several
+  frames afterwards. Removing impulsive noise is the next stage's job.
+</Callout>
