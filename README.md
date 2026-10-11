@@ -54,7 +54,7 @@ The system is deployed end-to-end on an NXP MCX N236 (ARM Cortex-M33) microcontr
 - **Want to see it in action?** → Visit the [live website](https://frdm-five.vercel.app/system)
 - **Want to train or evaluate the model yourself?** → See [`ml/README.md`](./ml/README.md)
 - **Want to build and flash the hardware?** → See [`hardware/README.md`](./hardware/README.md)
-- **Want to run or modify the website?** → See [`software/README.md`](./software/README.md)
+- **Want to run or modify the website?** → See [`software/README.md`](./Software/README.md)
 
 ## Acknowledgments
 
